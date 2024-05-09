@@ -1,0 +1,54 @@
+x canary test
+
+x tally for target FAVOR guess FAVOR
+x tally for target FAVOR guess TESTS
+x tally for target FAVOR guess RAPID
+x tally for target FAVOR guess MAYOR
+x tally for target FAVOR guess RIVER
+x tally for target FAVOR guess AMAST
+x tally for target FAVOR guess FOR throws an exception
+x tally for target FAVOR guess FERVER throws an exception
+x tally for target SKILL guess SKILL
+x tally for target SKILL guess SWIRL
+x tally for target SKILL guess CIVIL
+x tally for target SKILL guess SHIMS
+x tally for target SKILL guess SILLY
+x tally for target SKILL guess SLICE
+
+As a first step to design the play function our first test will be this:
+
+x play with attempt 0 target FAVOR and guess FAVOR
+
+
+x play throws an exception for attempt 1, target FAVOR and guess FEVER where FEVER is considered incorrect spelling
+x play returns proper response for attempt 1, target FAVOR and guess FEVER where FEVER is considered correct spelling
+x play throws an exception for attempt 1, target FAVOR and guess FEVER where checking for spelling results in an exception
+
+
+x getResponse returns 'true' for input FAVOR as respond from calling the webservice
+x getResponse returns 'false' for input FAVRO as respond from calling the webservice
+
+
+x parse returns true for argument 'true'
+x parse returns false for argument 'false'
+x parse raises ValueError when it does not receive a 'true' or 'false'
+
+#//Feedback: next steps
+- isSpellingCorrect returns true if getResponse returns true and uses parse
+#Feedback: tests.txt says: "isSpellingCorrect returns true if getResponse returns true and uses parse"
+#We should create a mock for getResponse, tell it to return true. Create a mock for parse.
+#call isSpellingCorrect
+#assert the response is True
+#assert that getResponse was called with FAVOR
+#assert that parse was called with true
+
+- isSpellingCorrect returns false if getResponse returns false and uses parse
+- isSpellingCorrect throws Network Error if getResponse throws that exception
+
+Let's integrate the GUI to display the appropriate message if the user enters an incorrect spelling
+
+- getResponse returns a list of words by calling the webservice
+- getARandomWord given a list of words
+- getARandomWord returns two different words given the same list, on two different calls
+
+Let's integrate the GUI to use pick from the words list
